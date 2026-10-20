@@ -1,0 +1,535 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>X Creator Academy 完全解説コンペンディウム</title><style>
+:root{
+  --bg:#f6f7f9;--card:#ffffff;--text:#0f1419;--sub:#536471;--line:#e6e9ec;
+  --accent:#1d9bf0;--accent2:#7856ff;--good:#00ba7c;--bad:#f4212e;--warn:#ffad1f;
+  --en:#f1f5ff;--ja:#fff8ef;--note:#f3efff;--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.06);
+  --radius:18px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0d10;--card:#16181c;--text:#e7e9ea;--sub:#8b98a5;--line:#2f3336;
+    --en:#122033;--ja:#2a2116;--note:#1f1a33;--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0d10;--card:#16181c;--text:#e7e9ea;--sub:#8b98a5;--line:#2f3336;
+  --en:#122033;--ja:#2a2116;--note:#1f1a33;--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,"Segoe UI",sans-serif;
+  line-height:1.8;font-size:16px;}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(135deg,#0f1419 0%,#1d2a3a 55%,#2b1f52 100%);color:#fff;padding:56px 16px 44px;}
+.hero .inner{max-width:1080px;margin:0 auto}
+.badge{display:inline-block;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);margin-right:6px;margin-bottom:6px}
+.hero h1{font-size:clamp(24px,5vw,40px);line-height:1.35;margin:14px 0 10px;font-weight:800}
+.hero p{color:#c9d3dc;margin:0 0 18px;max-width:760px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:12px;color:#aab8c2}
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.toc .inner{max-width:1080px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav.toc .inner::-webkit-scrollbar{display:none}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--text);font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+#themeBtn{margin-left:auto;cursor:pointer;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);white-space:nowrap}
+section{margin-top:48px}
+h2.sec{font-size:clamp(22px,4vw,30px);margin:0 0 6px;font-weight:800;display:flex;align-items:center;gap:10px}
+h2.sec .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:18px}
+.lead{color:var(--sub);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:16px}
+.card h3{margin:0 0 10px;font-size:19px;line-height:1.5}
+.card h4{margin:16px 0 6px;font-size:16px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+.en,.ja{border-radius:14px;padding:14px 16px;font-size:15px}
+.en{background:var(--en);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+.ja{background:var(--ja)}
+.lang{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:6px;margin-bottom:6px;background:rgba(127,127,127,.15);color:var(--sub)}
+.en p,.ja p{margin:0 0 8px}
+.en ul,.ja ul,.en ol,.ja ol{margin:4px 0 10px;padding-left:1.3em}
+.part-title{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin:30px 0 10px;text-transform:uppercase}
+.ex-bad{color:var(--bad);font-weight:700}.ex-good{color:var(--good);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);position:relative}
+.item .n{font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;padding:2px 8px;display:inline-block;margin-bottom:6px}
+.item h4{margin:2px 0 6px;font-size:16px;line-height:1.5}
+.item p{margin:0 0 6px;font-size:14.5px}
+.src{font-size:12.5px;color:var(--sub);border-left:3px solid var(--accent);padding-left:8px;margin-top:8px}
+.note{background:var(--note);border-radius:10px;padding:8px 10px;font-size:13.5px;margin-top:8px}
+.tag{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border-radius:6px;margin-right:4px;vertical-align:1px}
+.tag.k{background:var(--accent2);color:#fff}
+.tag.s{background:var(--accent);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--sub);margin-bottom:16px}
+.timeline{position:relative;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:9px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--accent),var(--accent2))}
+.tl{position:relative;margin-bottom:16px}
+.tl:before{content:"";position:absolute;left:-23px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--accent)}
+.tl .when{font-weight:800;color:var(--accent);font-size:14px}
+.tl .what{font-weight:700}
+.tl p{margin:2px 0;font-size:14.5px}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:10px 4px;border-bottom:1px dashed var(--line);cursor:pointer;font-size:15px}
+.check label:last-child{border-bottom:none}
+.check input{width:20px;height:20px;margin-top:4px;accent-color:var(--accent);flex:none}
+.check input:checked + span{color:var(--sub);text-decoration:line-through}
+.check .grp{font-weight:800;margin:14px 0 4px;color:var(--accent2);font-size:14px}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 12px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--good));transition:width .3s}
+.post{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.post .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-weight:800;flex:none}
+.post .name{font-weight:800;font-size:15px;line-height:1.2}
+.post .meta{font-size:12px;color:var(--sub)}
+.post pre{white-space:pre-wrap;word-break:break-word;font-family:inherit;margin:0 0 12px;font-size:15px;line-height:1.75;flex:1}
+.post .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.count{font-size:12px;color:var(--sub)}
+.count.over{color:var(--warn)}
+button.copy{cursor:pointer;border:none;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;color:#fff;background:var(--accent);transition:transform .1s,background .2s}
+button.copy:active{transform:scale(.96)}
+button.copy.done{background:var(--good)}
+.thread .post{margin-bottom:10px;position:relative}
+.thread .post:not(:last-child):after{content:"";position:absolute;left:34px;bottom:-11px;height:11px;width:2px;background:var(--line)}
+.copyall{margin:4px 0 14px}
+.disclaimer{font-size:13px;color:var(--sub);background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:14px 16px}
+footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:48px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:#0f1419;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:all .25s;z-index:50;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+strong.hl{background:linear-gradient(transparent 60%,rgba(29,155,240,.28) 60%)}
+
+.metrics{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.metrics span{font-size:12.5px;background:rgba(127,127,127,.12);border-radius:8px;padding:2px 8px}
+.asum{background:var(--note);border-radius:12px;padding:10px 14px;margin:6px 0 14px}
+.secrow{margin-bottom:12px}
+.secrow h4{margin:12px 0 6px}
+.en q{font-style:italic}
+.rmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.rmap .item dl{margin:0;font-size:14px}.rmap dt{font-weight:800;color:var(--accent);font-size:12.5px;margin-top:6px}.rmap dd{margin:0}
+.warnbox{border:2px solid var(--warn);border-radius:16px;padding:14px 16px;background:var(--card);margin:14px 0}
+.vid{border:1px dashed var(--accent2);border-radius:12px;padding:10px 14px;margin-top:10px;font-size:14px}
+.idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.idx a{display:block;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px}
+.idx a small{display:block;color:var(--sub)}
+</style></head><body>
+<header class="hero"><div class="inner"><span class="badge">@XCreators 公式記事 9本 ＋ @imagine 1本</span><span class="badge">2026年10月20日時点のデータ</span>
+<h1>X Creator Academy 完全解説<br>バズって稼ぐための公式ガイド大全</h1>
+<p>X公式（@XCreators／@imagine）が公開した記事10本を、セクションごとに日本語で整理。横断の行動指針・収益源マップ・チェックリスト・そのまま使える投稿案つき。</p>
+<div class="stats"><div class="stat"><b>10本</b><span>収録記事</span></div><div class="stat"><b>70,193,233</b><span>合計インプレッション（取得時点）</span></div><div class="stat"><b>15本＋2</b><span>投稿案＋スレッド</span></div></div></div></header>
+<nav class="toc"><div class="inner"><a href="#index">記事一覧</a><a href="#articles">記事解説</a><a href="#frameworks">行動指針</a><a href="#revenue">収益源マップ</a><a href="#checklist">チェックリスト</a><a href="#posts">投稿案</a><a href="#threads">スレッド</a><button id="themeBtn">🌓 テーマ</button></div></nav><div class="wrap">
+<div class="legend" style="margin-top:20px"><span><span class="tag s">公式</span>公式記事に書かれている内容</span><span><span class="tag k">解説</span>このページ作成者による解釈・組み合わせ方</span></div>
+<div class="disclaimer">このページは公式記事の<strong>要約・解説</strong>です。英語欄は各セクションの要点を示す短い引用のみで、全文ではありません。正確な全文は各記事のリンク（X上）で確認してください。数字・条件は記事公開時点のもので、変更されている可能性があります。</div>
+<section id="index"><h2 class="sec"><span class="num">0</span>収録記事一覧</h2><div class="idx">
+<a href="#a-rewards"><b>オリジナルコンテンツ報酬プログラム</b><small>Original Content Rewards Program<br>@XCreators・2026年8月8日 06:06（JST）</small></a>
+<a href="#a-live"><b>Live Studio：Xのライブ配信の新拠点</b><small>Live Studio: A New Home for Livestreaming on X<br>@XCreators・2026年7月3日 07:48（JST）</small></a>
+<a href="#a-exthreads"><b>Exclusive Threads（限定スレッド）完全ガイド</b><small>The ultimate guide to Exclusive Threads<br>@XCreators・2026年4月9日 07:37（JST）</small></a>
+<a href="#a-imgimg"><b>Grok Imagine 画像生成 完全ガイド</b><small>The ultimate guide to Grok Imagine images<br>@XCreators・2026年4月4日 07:34（JST）</small></a>
+<a href="#a-imgvid"><b>Grok Imagine 動画生成 完全ガイド</b><small>The ultimate guide to Grok Imagine videos<br>@XCreators・2026年3月28日 06:28（JST）</small></a>
+<a href="#a-subs"><b>Creator Subscriptions（サブスク）完全ガイド</b><small>The ultimate guide to Creator Subscriptions<br>@XCreators・2026年3月11日 07:25（JST）</small></a>
+<a href="#a-adcontest"><b>Grok Imagine 広告コンテスト受賞者発表</b><small>Grok Imagine Ad Contest Winners<br>@XCreators・2026年2月9日 04:02（JST）</small></a>
+<a href="#a-artcontest"><b>賞金100万ドル 記事コンテスト受賞者発表</b><small>The $1M Article Contest Winners<br>@XCreators・2026年2月4日 06:47（JST）</small></a>
+<a href="#a-articles"><b>X Articles（記事）完全ガイド</b><small>The ultimate guide to Articles on X<br>@XCreators・2026年1月16日 09:22（JST）</small></a>
+<a href="#a-odyssey"><b>Grok Imagine オデュッセイア・コンテスト受賞者発表</b><small>Grok Imagine Odyssey Contest Winners<br>@imagine・2026年9月5日 05:49（JST）</small></a>
+</div></section>
+<section id="articles"><h2 class="sec"><span class="num">1</span>記事ごとの解説（要約・日英対照）</h2><p class="lead">左：原文の要点を示す短い引用／右：日本語の詳しい要約。</p>
+<div class="card" id="a-rewards"><div class="part-title">ARTICLE 01</div><h3>オリジナルコンテンツ報酬プログラム<br><small style="color:var(--sub);font-weight:600">Original Content Rewards Program</small></h3>
+<div class="meta">@XCreators・投稿：2026年8月8日 06:06（JST）・<a href="https://x.com/XCreators/status/2085835082166653393" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 11,189,650</span><span>❤️ 11,979</span><span>🔁 2,134</span><span>💬 2,460</span><span>🔖 5,375</span><span>引用 5,013</span></div>
+<div class="asum"><span class="tag s">公式</span>従来の「収益配分（Revenue Sharing）」に代わる新しい収益化制度。オリジナルの発信をする人に、Premiumユーザーからの「適格インプレッション」に応じて報酬を払う仕組み。</div>
+<div class="secrow"><h4>プログラムの狙い</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“reward creators who bring something new to X”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>ニュース速報・専門知識・体験談・コメンタリーなど「自分にしか出せないもの」を出すクリエイターに報酬を払う制度。</li><li>既存のものを再共有するだけでなく「何かを付け加える」コンテンツを評価する、という方針が明言されている。</li></ul></div></div></div>
+<div class="secrow"><h4>Revenue Sharing（収益配分）はどうなる？</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“we&#x27;re no longer accepting new enrollments into Revenue Sharing”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>記事公開日（2026/8/7 UTC）から収益配分の新規受付は終了。</li><li>既存参加者は2026年9月7日まで収益が発生。支払いは8/14・8/28（通常スケジュール）と、9/7までの分の最終支払い（9/11前後見込み）の計3回。</li><li>2026年9月8日から、既存参加者が新プログラムに申請できるよう順次開放。申請には新プログラムの要件を満たす必要あり。状況は Creator Studio → Original Content Rewards で確認可能。</li><li>本人確認と支払い方法の登録が済んでいれば再手続きは不要。</li><li>過去の違反で収益化が一時停止中のアカウントは対象外。</li></ul></div></div></div>
+<div class="secrow"><h4>どうやって稼ぐのか</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“earn money from qualified impressions generated by their original content”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>オリジナルコンテンツが生んだ「適格インプレッション」に応じて報酬が発生。</li><li>支払いは2週間ごと。新プログラム初回支払いは2026年8月28日。9月8日以降に移行した既存参加者の初回は2026年9月25日。</li></ul></div></div></div>
+<div class="secrow"><h4>適格インプレッションとは</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“unique impressions from Premium users … on the Home Timeline”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Premium系（Basic / Premium / Premium+ / Premium Business）加入者による、ホームタイムライン上のユニークなインプレッションで、投稿の50%以上が表示されたもの。</li><li>除外：同一アカウントの重複カウント、有料・プロモーション・人為的に生成されたもの、不正なもの。</li></ul></div></div></div>
+<div class="secrow"><h4>参加資格</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Have at least 500 verified followers”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>18歳以上／プログラム提供国に居住／規約違反を繰り返していない良好なアカウント／個人またはビジネスアカウント。</li><li>X Premium・Premium+・Premium Business のいずれかに加入。</li><li>認証済みフォロワー500人以上。</li><li>直近90日で認証ユーザーからのホームタイムライン・インプレッション50万以上（リプライへのインプは除外）。</li><li>オリジナルコンテンツを定期的に投稿していること。</li><li>Creator Studio → Original Content Rewards から申請。審査結果は3営業日以内。不承認なら1回だけ異議申立て可、だめなら90日後に再申請可。</li></ul></div></div></div>
+<div class="secrow"><h4>継続要件（やってはいけないこと）</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Do not solicit engagements”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Premium系への加入を継続し、オリジナルで本物のコンテンツを投稿すること。</li><li>不正行為・プログラムや支払いシステム・おすすめアルゴリズムへの干渉は禁止。</li><li>ボットや自動ツールでいいね・フォロー・閲覧・コメント・シェアを水増しするのは禁止。</li><li>【重要】エンゲージメントの懇願禁止：いいね・リプ・ブックマーク・フォロー・リポストを繰り返し求める行為。</li><li>違反時は通知が来て、程度により一時的または永久にプログラムから除外（異議申立て可）。列挙はすべてではなく、Xが裁量で判断すると明記。</li></ul></div></div></div>
+<div class="secrow"><h4>コンテンツ要件（対象外になるもの）</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“exclusively focused on monetization coaching”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>他のクリエイターからのコピー・実質的な転載。</li><li>X等からダウンロードして再アップロードしたもの（自分が作者の場合を除く）。</li><li>自動化手段で作成・投稿されたもの。不適切・性的・有害なもの。偽情報・誤解を招くもの。</li><li>【重要】「収益化コーチング」「収益化の話」「支払い最大化」だけに特化したコンテンツ。</li><li>役に立つと評価されたコミュニティノートが付いたもの。ガイドライン・規約・著作権ポリシー違反。</li></ul></div></div></div>
+<div class="secrow"><h4>オリジナルコンテンツ101</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“the value of a post should come primarily from what you add”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>オリジナル＝自分の声・視点・専門性・創造性を反映した、自分で作ったもの。スレッド、動画、ミーム、スクープ、分析、独自視点のコメンタリーなど。</li><li>コメンタリーは「Xの核」。既存の投稿や動画を起点にしてもよく、重要なのは上乗せした価値（視点・専門性・ユーモア・文脈）。</li><li>トリミング・フィルター・枠・透かし・速度変更・簡単な文字入れ程度は、それだけでは「意味のある変換」とみなされないのが一般的。</li><li>単に他人の作品を広めたいなら「リポスト」を使う（元の作者に正しく評価とリーチが届く）。</li><li>投稿前の自問：「自分の貢献がなくてもこの投稿に価値があるか？」— Yesなら、もっと自分の視点を足す。</li></ul></div></div></div>
+<div class="secrow"><h4>オリジナルでない例</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Reaction posts that add little to no value”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>他アカウントからの完全コピー／ダウンロードして自作として再投稿。</li><li>すでに映っている内容を説明するだけのキャプションや文字入れ。</li><li>説明だけ・無関係・価値の薄い要約。</li><li>ハンドル名やロゴでクレジットしても、解説・分析・創造性・文脈がない転載。</li><li>コメントがほぼない、価値の薄いリアクション投稿。</li></ul></div></div></div>
+<div class="secrow"><h4>知的財産との関係</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Creators are responsible for ensuring they have the necessary rights”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>このプログラムでの「オリジナル」判定と、Xの知的財産ポリシーは別物。</li><li>オリジナル扱いでも権利侵害になりうる。他人の素材を使う権利・許可の確保は投稿者の責任。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-live"><div class="part-title">ARTICLE 02</div><h3>Live Studio：Xのライブ配信の新拠点<br><small style="color:var(--sub);font-weight:600">Live Studio: A New Home for Livestreaming on X</small></h3>
+<div class="meta">@XCreators・投稿：2026年7月3日 07:48（JST）・<a href="https://x.com/XCreators/status/2072814635963560000" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 145,445</span><span>❤️ 561</span><span>🔁 91</span><span>💬 167</span><span>🔖 148</span><span>引用 29</span></div>
+<div class="asum"><span class="tag s">公式</span>Creator Studio内に組み込まれた、ライブ配信の作成・管理・分析を一か所で行う新しいコントロールルーム（ベータ）。</div>
+<div class="secrow"><h4>概要と始め方</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Premium users can get started today”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Live Studioはベータ版として提供。Creator Studioに統合された配信コントロールルーム。</li><li>ライブ番組、速報、イベント中継、視聴者との対話を1つのダッシュボードから。</li><li>Premiumユーザーは Creator Studio → Live Studio、または x.com/i/live-studio から開始。</li></ul></div></div></div>
+<div class="secrow"><h4>配信の作成と予約</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Countdown timers”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>New Livestream → ソース選択 → サムネイル → 視聴者設定 → 即時配信 or 予約。</li><li>予約配信には カウントダウンタイマー／カスタムサムネイル／自動または手動の開始 が付く。</li></ul></div></div></div>
+<div class="secrow"><h4>配信中のダッシュボード</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Concurrent viewers”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>同時視聴者数、視聴行動と視聴時間、チャット参加、上位の国、デバイス内訳をリアルタイムで確認。配信後も分析に利用可。</li><li>配信を止めずにタイトル変更、視聴者・チャット設定の変更、チャットのON/OFF、会話参加者の制御が可能。</li><li>Xへの投稿、URLコピー、外部サイト用の埋め込みコード生成（ニュースレター・ブログ等で共有）。</li></ul></div></div></div>
+<div class="secrow"><h4>プロ向け機能</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Connect external encoders via RTMP”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>RTMPで外部エンコーダー接続、RTMPソースの再利用、非公開テスト配信、地域制限、最大1年先までの予約、終了後のダウンロード。</li><li>OBS、Streamlabs、vMix、Wirecast などに対応。</li></ul></div></div></div>
+<div class="secrow"><h4>チャットの視聴者設定</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Subscribers”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>チャット参加範囲：全員／認証済みアカウント／フォロー中のアカウント／サブスクライバー／チャットオフ。配信前・配信中に変更可。</li><li>既存の Media Studio Producer も当面は利用可能。今後Live Studioに機能を追加予定。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-exthreads"><div class="part-title">ARTICLE 03</div><h3>Exclusive Threads（限定スレッド）完全ガイド<br><small style="color:var(--sub);font-weight:600">The ultimate guide to Exclusive Threads</small></h3>
+<div class="meta">@XCreators・投稿：2026年4月9日 07:37（JST）・<a href="https://x.com/XCreators/status/2042009042629898531" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 136,452</span><span>❤️ 520</span><span>🔁 88</span><span>💬 111</span><span>🔖 318</span><span>引用 37</span></div>
+<div class="asum"><span class="tag s">公式</span>スレッドの前半を公開して通常のアルゴリズム配信を受けつつ、後半をサブスクライバー限定にロックする機能。「リーチ」と「収益化」の両立を狙う、Creator Subscriptions 2.0の一部。</div>
+<div class="secrow"><h4>なぜ作られたか</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“the tradeoff between monetizing your content and actually getting it seen”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>従来のサブスク限定投稿は本文が隠れるためタイムラインで伸びにくく、新規サブスク獲得が難しかった。</li><li>Exclusive Threadsでは公開部分がフルにアルゴリズム配信され、スレッド内に購読ボタンが埋め込まれる。読者はスレッドから離れずに購読できる。</li></ul></div></div></div>
+<div class="secrow"><h4>仕組みと構成例</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Post 1 (Public): Your hook.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>1投稿目（公開）：フック。2投稿目（公開）：文脈・背景。3投稿目（公開）：読む価値を証明する重要な洞察やデータ。4投稿目以降（限定）：本題の詳細・戦略・データ。</li><li>購読ボタンは公開→限定の切り替わり地点に表示。別ページへ誘導しないので離脱が減る。</li><li>例：株式トレーダーが公開部分で2つのセクター分析を無料提示し、3つ目のセクターと具体的な銘柄・売買水準を限定にする。</li></ul></div></div></div>
+<div class="secrow"><h4>限定投稿との使い分け</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“subscriber-only posts keep your current subscribers happy. Exclusive Threads bring new ones in the door.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>サブスク限定投稿＝既存サブスクの「継続（リテンション）」用。</li><li>Exclusive Threads＝新規サブスク獲得の「成長エンジン」。</li><li>最も成果を出すクリエイターは両方を使う。人は「良いものを逃しそう」と感じたときに購読する。</li></ul></div></div></div>
+<div class="secrow"><h4>始め方</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Tap the "Everyone" button to mark individual posts as subscriber-only”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Step1：Creator Studio → Subscriptions で特典と価格を設定し、承認を待つ（オンボーディングは2ステップに簡略化、審査も高速化）。</li><li>Step2：通常どおりスレッドを書き、「Everyone」ボタンから限定にしたい投稿を選んで投稿。特別なエディタは不要。</li></ul></div></div></div>
+<div class="secrow"><h4>コンバージョンする書き方</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Lead with your strongest material, not your weakest.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>一番強い素材を公開部分に。無料部分がつまらないと誰もペイウォールまで届かない。</li><li>切り替わりは「必然」に感じさせる。悪い例：前置きだけ3投稿→いきなり有料。良い例：成果→フレームワーク→具体的な週次メニュー例まで見せてから、完全版を限定に。</li><li>公開部分で信頼性を証明する（データや洞察を1つは出す）。</li><li>公開部分は2〜3投稿。4投稿が上限、多くの人は3がスイートスポット。</li><li>壁の向こうに何があるか具体的に言う（例：「数字付きの完全な内訳は以下」）。</li></ul></div></div></div>
+<div class="secrow"><h4>サブスクを伸ばすベストプラクティス</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“roughly one Exclusive Thread for every three to five regular posts”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>アナリティクスで反応の多い時間帯に投稿する。</li><li>全部を限定にしない。目安は通常投稿3〜5本に1本のExclusive Thread（要検証）。</li><li>反応の良かったスレッドの後にSubscriptionsカードを共有。</li><li>新Creator Dashboardでどのスレッドが新規サブスクを生んだか追跡。</li><li>限定リプライ・DM・Spaces・バッジなど他の特典と組み合わせて価値を積み上げる。</li></ul></div></div></div>
+<div class="secrow"><h4>向いているネタ</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Predictions and forecasts.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>分析・解説（見出しの結論は公開、詳細は限定）。</li><li>チュートリアル（最初の数ステップを公開、完全版は限定）。</li><li>舞台裏（表面のストーリーは公開、数字・プロセス・教訓は限定）。</li><li>予測（仮説は公開、具体的な予想は限定）。</li><li>厳選リスト（いくつかを公開、全リストは限定）。</li></ul></div></div></div>
+<div class="secrow"><h4>注意点</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Under-promise and over-deliver behind the wall.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>約束は必ず果たす。限定部分が薄いとすぐ解約される。</li><li>まず無料の読者基盤を作る。公開投稿が伸びていないなら、ペイウォールでは解決しない。</li><li>単独の限定投稿（テキスト・画像・動画・記事・Spaces）も続ける。</li><li>限定コンテンツはプロフィールのメインフィードにも表示される。</li><li>Creator Subscriptions参加者なら全世界で利用可能。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-imgimg"><div class="part-title">ARTICLE 04</div><h3>Grok Imagine 画像生成 完全ガイド<br><small style="color:var(--sub);font-weight:600">The ultimate guide to Grok Imagine images</small></h3>
+<div class="meta">@XCreators・投稿：2026年4月4日 07:34（JST）・<a href="https://x.com/XCreators/status/2040196196388762028" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 890,873</span><span>❤️ 2,430</span><span>🔁 562</span><span>💬 327</span><span>🔖 1,919</span><span>引用 100</span></div>
+<div class="asum"><span class="tag s">公式</span>Grok Imagineで画像を作る方法と、プロンプトの5要素、修正のコツ、クリエイターのワークフローへの組み込み方。</div>
+<div class="secrow"><h4>どこで使えるか・2つの生成方法</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Upload up to 7 images”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Grokアプリ（iOS/Android）とgrok.comのImagineタブ。</li><li>テキストから生成（Text-to-Image）と、参照画像（最大7枚）から生成。「@」で特定の参照画像をタグ指定できる。</li><li>アスペクト比は16:9・9:16・3:2・2:3・1:1の5種類。生成前に投稿先に合わせて決める。</li></ul></div></div></div>
+<div class="secrow"><h4>Speed ModeとQuality Mode</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Think Harder”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Speed Mode：最速。下書きや複雑でない画像向け。</li><li>Quality Mode：視覚的知性・文字描画・リアリティ・表現の幅が向上。精度が必要な画像向け。</li><li>高速生成の結果の下にある「Think Harder」で精度を上げることもできる。</li></ul></div></div></div>
+<div class="secrow"><h4>良いプロンプトの5要素</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“One gives Grok a creative brief. The other gives it a coin flip.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>①被写体を具体的に ②形容詞1つでなく参照（例：作品名や年代の色調）でムードを指定 ③光源を名指し ④構図（カメラ位置）を書く ⑤被写界深度・粒子・レンズ・色調などの仕上げ。</li><li>曖昧なプロンプトは「コイン投げ」、具体的なプロンプトは「クリエイティブ・ブリーフ」になる。</li></ul></div></div></div>
+<div class="secrow"><h4>Grokにプロンプトを書かせる</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Ask Grok to turn it into an Imagine prompt.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>通常のGrokチャットでアイデアを説明し、Imagine用プロンプトに変換してもらう。</li><li>Grok Projectにブランドの世界観や好みのトーンを登録しておけば、毎回説明し直さなくてよい。</li></ul></div></div></div>
+<div class="secrow"><h4>惜しいときの直し方・編集</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Run it again first.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>まず同じプロンプトで再生成（毎回結果が変わる）。</li><li>同じ点で外れ続けるなら、ずれている要素（光・構図など）だけを修正。全体を書き直さない。</li><li>自分の写真の編集も可能：スマホ写真をプロ風に、物の削除・追加・変更、スタイル変換（テンプレートあり）。</li></ul></div></div></div>
+<div class="secrow"><h4>ワークフローへの組み込み</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Imagine gets you from idea to post in under a minute”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>トレンド時：1分以内にアイデアから投稿へ。タイミングが命のときに効く。</li><li>量が必要なとき：バリエーションを一気に作り、どの方向性が強いか試す。</li><li>一貫性：良かったプロンプトを保存し、少しずつ変えて再利用。</li><li>企画：Grokチャットで絵コンテとプロンプト→Imagineで制作。</li><li>動画化：まず画像を完璧に仕上げ、そこから動画にする。</li><li>Savedタブのタグ機能で整理。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-imgvid"><div class="part-title">ARTICLE 05</div><h3>Grok Imagine 動画生成 完全ガイド<br><small style="color:var(--sub);font-weight:600">The ultimate guide to Grok Imagine videos</small></h3>
+<div class="meta">@XCreators・投稿：2026年3月28日 06:28（JST）・<a href="https://x.com/XCreators/status/2037642851732066580" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 31,447,738</span><span>❤️ 3,138</span><span>🔁 531</span><span>💬 383</span><span>🔖 5,681</span><span>引用 178</span></div>
+<div class="asum"><span class="tag s">公式</span>テキスト・画像・参照画像から動画を作る3つの方法、設定、延長機能、プロンプトのコツ、クリエイターの活用シーン。記事内に約6秒のデモ動画が1本埋め込まれている。</div>
+<div class="secrow"><h4>3つの生成方法</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“This is where most creators spend their time.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Text-to-video：説明文から直接動画を生成。</li><li>Image-to-video：画像を音声付きの短いクリップに。多くのクリエイターが最も使う方法で、開始フレームが決まるので結果が予測しやすい。</li><li>Reference-to-video：最大7枚の参照画像をスタイルの土台に。ブランドの世界観を合わせたいときに。</li><li>コツ：まず詳細なプロンプトで画像を作って確認→動画化。動画プロンプトは短く、動き・カメラ・ムードだけ書く。</li></ul></div></div></div>
+<div class="secrow"><h4>設定</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Grok supports videos in 480p or 720p.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>アスペクト比5種類（16:9・9:16・3:2・2:3・1:1）、長さ、画質（480p / 720p）。</li><li>生成後はダウンロード、ライブラリ保存、Xへの直接アップロードが可能。</li></ul></div></div></div>
+<div class="secrow"><h4>動画の延長（Extend Video）</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Just tell it where to go from here.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>生成したクリップの任意のフレームから延長。動き・人物の位置・照明・音声を引き継ぎ、連結しても1カットのように見える。</li><li>延長プロンプトは「次に何が起きるか」だけを書く。シーン全体を説明し直さない。</li></ul></div></div></div>
+<div class="secrow"><h4>プロンプトの型</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Subject + style/mood + lighting + camera angle + finishing details”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>被写体＋スタイル/ムード＋照明＋カメラアングル＋仕上げ。具体的にしつつ、指定しすぎて自由度を奪わない。</li><li>Grokチャットにプロンプトを書かせる／Grok Projectsで絵コンテ作成を定型化する。</li></ul></div></div></div>
+<div class="secrow"><h4>より良い結果のためのコツ</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Run the same prompt more than once.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>構図はシンプルに（明確な被写体＋整理された背景）。</li><li>人物はやや引きのショットとゆっくりした動きが最もきれい。</li><li>形容詞でなくムードの参照を使う。照明とカメラの動きを名指しする。</li><li>Image-to-videoのプロンプトは短く。同じプロンプトを複数回試す。うまくいったプロンプトは保存。</li><li>テンプレート（Funky Dance、Chibi、3D Animation、Comic Book、80s Animeなど）から始めるのも手。</li></ul></div></div></div>
+<div class="secrow"><h4>クリエイターの活用シーン</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“fast enough to post while the moment is still relevant”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>リアクティブ投稿：トレンドに1分以内で映像を。</li><li>解説クリップ：10秒のアニメーションで、静止画や文章で伝わらないことを伝える。</li><li>商品コンテンツ：商品写真を動きのある映像に。延長で複数アングルも。</li><li>アイデア検証：本制作前に方向性を試す。</li><li>複数シーンの物語：Grokで絵コンテ→各ショット生成→延長や編集で連結。</li><li>Savedタブでタグ（例：商品ローンチ、ミーム、チュートリアル）を作って整理。</li></ul></div></div></div>
+<div class="vid">🎬 <b>記事内の動画：</b>Image-to-videoの例として約6秒のデモ動画が1本埋め込まれています（1066×720のmp4を取得済み）。文字起こしを実行しましたが、<b>音声は環境音のみで発話はありませんでした</b>（文字起こし結果なし）。そのため翻訳対象のセリフはありません。</div>
+</div>
+<div class="card" id="a-subs"><div class="part-title">ARTICLE 06</div><h3>Creator Subscriptions（サブスク）完全ガイド<br><small style="color:var(--sub);font-weight:600">The ultimate guide to Creator Subscriptions</small></h3>
+<div class="meta">@XCreators・投稿：2026年3月11日 07:25（JST）・<a href="https://x.com/XCreators/status/2031496581262746001" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 214,482</span><span>❤️ 898</span><span>🔁 98</span><span>💬 183</span><span>🔖 539</span><span>引用 62</span></div>
+<div class="asum"><span class="tag s">公式</span>フォロワーから毎月の継続課金を得る仕組みの、資格・設定・価格戦略・全機能の使い方・収益の受け取り・最初の30日プラン。</div>
+<div class="secrow"><h4>考え方</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“followers show interest, but subscribers show commitment”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>フォロワーは「関心」、サブスクライバーは「コミット」。毎月の継続収入は、より安定的で予測可能な収入源になる。</li><li>Creator Subscriptions 2.0で限定コンテンツの投稿・宣伝の方法、ダッシュボード、転換ツールが強化された。</li></ul></div></div></div>
+<div class="secrow"><h4>Step1：参加資格</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“At least 2,000 Verified followers”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>18歳以上／アクティブ（過去30日以内に投稿、アカウント作成から3か月以上）／X Premiumで認証済み／認証済みフォロワー2,000人以上／過去3か月のオーガニック・インプレッション500万以上。</li><li>まだ届かないなら：ニッチを決めて「その分野の人」になる。視点を持って投稿し、継続し、同分野のアカウントと関係を作る。リプライは他人のフィードにも出てインプを伸ばす。</li></ul></div></div></div>
+<div class="secrow"><h4>Step2：設定と価格</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“"Weekly market breakdowns" beats "exclusive content" every time.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Creator Studio > Subscriptions → 特典選択 → 月額設定 → 申請。多くは1〜2営業日で公開。</li><li>カスタム特典を1〜2個追加。具体的な特典の方が漠然とした特典より転換する。</li><li>低価格×多人数（広いコミュニティ・認知拡大）か、高価格×少人数（専門性・直接アクセス）か。どちらでも稼げる。ランダムに決めるのが間違い。</li><li>最初は無理のない価格で始め、価値を証明してから値上げ（上げる方が下げるより簡単）。$5・$10・$50はそれぞれ違う層を引き寄せる。同ジャンルの価格も確認。</li></ul></div></div></div>
+<div class="secrow"><h4>Step3：全機能の使い方</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“The hook is everything.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>限定投稿・Exclusive Threads：冒頭は単独でバズる投稿のように書く。「オープンループ」、「Part1無料・Part2以降有料」のシリーズ、公開後に「サブスクが何を見たか」を告知、アクセスの多い日に投下。</li><li>限定記事：定期フォーマット化（例：毎週の深掘り）、通知ONを促す、3〜5項目の目次で引用投稿、1週間後にスレッドとして再利用。</li><li>公開投稿の限定リプライ：反応の多い投稿で使う。限定の投票やAMA。良いリプの要約を公開。</li><li>サブスクバッジ：バッジ付きの人に返信で反応し「サブスクは特別扱い」と示す。</li><li>サブスクからのDM：メイン受信箱に届く。「DMできます」と告知、月1回の限定AMA、要望調査に活用、優先して返信。</li><li>Subscriptionsシェアカード：URLを貼るだけで購読カードに。プロフィール固定、伸びた投稿の後に投下、他SNSでも共有、1行のフックを添える。</li><li>限定Spaces：定期開催、事前に話題を予告、月1の「タウンホール」、終了後に要約スレッドを公開。</li></ul></div></div></div>
+<div class="secrow"><h4>Step4：収益の仕組み</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“𝕏 takes zero platform fee”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Xのプラットフォーム手数料はゼロ。差し引かれるのは決済・アプリストア手数料、キャンセル、返金のみ。</li><li>Stripe経由で支払い、最低$50。月末から約60日後に処理・入金されるのが一般的。</li><li>Web経由の購読はアプリ経由より手数料が大幅に低い。理由を説明してWeb購読をお願いするとよい。</li><li>Creator Studio内のSubscriptions Dashboardを毎週確認。</li></ul></div></div></div>
+<div class="secrow"><h4>サブスク成長プレイブック</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Consistency beats quantity”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>転換：週に数回は購読を促すフック、得られるものを具体的に、Exclusive Threadで価値を試食、「今週[話題]の限定解説を出します」で緊急性、サブスク内のやり取りを公開、カードを固定。</li><li>継続：頻度より一貫性（毎週の確実な限定1本＞不定期10本）、毎月アンケート、古参への感謝や先行告知、忙しいときも一言連絡。</li></ul></div></div></div>
+<div class="secrow"><h4>最初の30日</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Week 1: Make Noise.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Week1：開始を「イベント」として告知し、すぐに一番良い限定コンテンツを出す。</li><li>Week2：全フォーマットを試す（Exclusive Thread、限定リプ、短い記事、Space）。</li><li>Week3：反応が良かった形式で最高傑作を出し、ティーザー付きで公開引用。</li><li>Week4：ダッシュボードで購読日と投稿内容を照合。初期サブスクにDMで要望を聞く。</li><li>初週・初月の数字で判断しない。継続し、聴き、改善する。</li></ul></div></div></div>
+<div class="secrow"><h4>他プラットフォームを使っている人へ</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“think of it as a new room”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Xは置き換えではなく「新しい部屋」。他プラットフォームとの読者の重なりは想定より小さく、X上のサブスクは上乗せの収益になる。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-adcontest"><div class="part-title">ARTICLE 07</div><h3>Grok Imagine 広告コンテスト受賞者発表<br><small style="color:var(--sub);font-weight:600">Grok Imagine Ad Contest Winners</small></h3>
+<div class="meta">@XCreators・投稿：2026年2月9日 04:02（JST）・<a href="https://x.com/XCreators/status/2020574093213655295" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 5,166,713</span><span>❤️ 2,872</span><span>🔁 386</span><span>💬 1,710</span><span>🔖 760</span><span>引用 617</span></div>
+<div class="asum"><span class="tag s">公式</span>Grok Imagine 1.0で作った広告動画のコンテスト結果。48時間で4,000件以上の応募。</div>
+<div class="secrow"><h4>評価方法</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“creativity, originality, and U.S. Verified Home Timeline impressions”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>評価基準：創造性、オリジナリティ、米国の認証ユーザーによるホームタイムライン・インプレッション。</li><li>ファイナリストはGrok Imagine 1.0だけで作られたかを、元プロジェクトのリンクとプロンプトで確認。</li></ul></div></div></div>
+<div class="secrow"><h4>受賞者</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Congrats Andy, you&#x27;re a millionaire.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>グランプリ$1M：@andyorsow「Understand the Universe. Faster.」（ガリレオの異端審問をGrokへの問いとして再解釈）。</li><li>2位$500,000：@Diesol（宇宙を夢見る少年とGrok）。</li><li>3位$250,000：@PJaccetturo（宇宙を旅する広告）。制作手順のガイドも公開。</li><li>佳作2作品：各$100,000。</li><li>グランプリ作品は試合当日、Super Bowl Portalを含むXの複数の広告枠で放映。</li></ul></div></div></div>
+<div class="vid">ℹ️ 記事内に埋め込まれた受賞作品（投稿）は記事本文テキストに含まれないため、作品の中身は原文リンクから確認してください。</div>
+</div>
+<div class="card" id="a-artcontest"><div class="part-title">ARTICLE 08</div><h3>賞金100万ドル 記事コンテスト受賞者発表<br><small style="color:var(--sub);font-weight:600">The $1M Article Contest Winners</small></h3>
+<div class="meta">@XCreators・投稿：2026年2月4日 06:47（JST）・<a href="https://x.com/XCreators/status/2018803490504774059" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 10,654,809</span><span>❤️ 13,686</span><span>🔁 1,310</span><span>💬 2,641</span><span>🔖 4,660</span><span>引用 1,326</span></div>
+<div class="asum"><span class="tag s">公式</span>X Articlesのコンテスト結果。数万人のクリエイターがオリジナル記事を投稿し、真正性を監査した上で選出。</div>
+<div class="secrow"><h4>グランプリ</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Top Article by US Verified Home Timeline impressions”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>米国の認証ユーザーによるホームタイムライン・インプレッション1位の記事：@beaverd。大手政府系コンサルの連邦・州IT案件を、契約データ・監査・システム障害の記録から分析。賞金$1M。</li></ul></div></div></div>
+<div class="secrow"><h4>準グランプリ・クリエイター賞</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“the best-performing Article in the history of 𝕏”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>準グランプリ$500,000：@KobeissiLetter（世界の関税と地政学的な貿易変化のリアルタイム解説）。</li><li>Creator Choice Award $250,000：このコンテストのきっかけになった@thedankoe。Xの歴史上最も伸びた記事を書いた人物で、集中・優先順位・長期的なレバレッジのフレームワーク記事も上位に。</li></ul></div></div></div>
+<div class="secrow"><h4>佳作</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“public policy and geopolitics to history and public safety”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>Nick Shirley、Josh Wolfe、Kaizen Asiedu、Ryan Hall に各$100,000（Josh Wolfeは4つの慈善団体に均等寄付予定）。</li><li>テーマは公共政策・地政学・歴史・治安など幅広い。</li></ul></div></div></div>
+<div class="vid">ℹ️ 記事内に埋め込まれた受賞作品（投稿）は記事本文テキストに含まれないため、作品の中身は原文リンクから確認してください。</div>
+</div>
+<div class="card" id="a-articles"><div class="part-title">ARTICLE 09</div><h3>X Articles（記事）完全ガイド<br><small style="color:var(--sub);font-weight:600">The ultimate guide to Articles on X</small></h3>
+<div class="meta">@XCreators・投稿：2026年1月16日 09:22（JST）・<a href="https://x.com/XCreators/status/2011957172821737574" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 6,470,479</span><span>❤️ 5,236</span><span>🔁 892</span><span>💬 859</span><span>🔖 6,776</span><span>引用 416</span></div>
+<div class="asum"><span class="tag s">公式</span>長文機能X Articlesの書き方8ステップ、読者を増やす方法、サブスク限定記事での収益化。Articlesは全Premium加入者に開放済み。</div>
+<div class="secrow"><h4>良い記事の書き方 1〜4</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Why 95% of Productivity Advice Fails”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>①目的を明確に（読後に何を考え・感じ・行動してほしいか、誰向けか）。</li><li>②タイトルとフック：具体的で好奇心をそそり価値を約束する。悪い例「2026年の生産性向上のコツ」→良い例「生産性アドバイスの95%が失敗する理由」。ヘッダー画像も重要。</li><li>③流し読みできる構造：段落2〜4行、3〜5段落ごとに小見出し、箇条書き、各セクションの要点を太字、1段落1アイデア（多くの人はモバイルで読む）。</li><li>④自然で覚えてもらえる声：友人に話すように。「あなた」を使う。</li></ul></div></div></div>
+<div class="secrow"><h4>良い記事の書き方 5〜8</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“The first draft is for you.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>⑤主張の直後に根拠（データ・体験・ビフォーアフター）。自分の投稿や記事の埋め込みも可。</li><li>⑥容赦なく編集：文字数を20〜30%削る、「とても」などの水増し語を削る、音読する。</li><li>⑦画像・スクショ・グラフ・埋め込み投稿で区切る。整形された記事ほどエンゲージメントが高い。</li><li>⑧強い締め：要点のまとめ、リプを誘う質問、「今すぐ1つ試して」。</li></ul></div></div></div>
+<div class="secrow"><h4>読者を増やす</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Pin new Articles to your profile”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>公開の数時間前にティーザーや質問を投稿。</li><li>公開後24〜72時間はプロフィールに固定。</li><li>要点を抜き出して投稿／スレッド化し、記事へリンク。</li><li>初期のリプに返信（勢いのシグナルになる）。</li><li>エバーグリーンな記事は関連ニュースのタイミングで再共有。</li></ul></div></div></div>
+<div class="secrow"><h4>サブスク限定記事で収益化</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“End Articles with a short "Next week:"”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>購読で得られる価値を明示（深掘り・先行公開・限定意見・舞台裏・定期シリーズ）。</li><li>ソフトペイウォール：一部は無料で集客、深い内容はサブスク向け。</li><li>限定フォーマット（週次メモ、業界ブリーフ、Q&Aなど）。サブスクへの公開の感謝。記事末に「来週：」で習慣化。</li><li>投稿方法：Publish →「Choose your audience」でSubscribers → Publish。非サブスク向けにティーザー投稿＋購読リンク（x.com/ユーザー名/creator-subscriptions/subscribe）で宣伝。</li></ul></div></div></div>
+</div>
+<div class="card" id="a-odyssey"><div class="part-title">ARTICLE 10</div><h3>Grok Imagine オデュッセイア・コンテスト受賞者発表<br><small style="color:var(--sub);font-weight:600">Grok Imagine Odyssey Contest Winners</small></h3>
+<div class="meta">@imagine・投稿：2026年9月5日 05:49（JST）・<a href="https://x.com/imagine/status/2095977612778639618" target="_blank" rel="noopener">原文を開く ↗</a></div>
+<div class="metrics"><span>👁 3,876,592</span><span>❤️ 1,021</span><span>🔁 175</span><span>💬 215</span><span>🔖 450</span><span>引用 117</span></div>
+<div class="asum"><span class="tag s">公式</span>@imagine による発表。ローンチ投稿を引用し、Grok Imagineで『オデュッセイア』の場面を作るコンテスト（画像・動画・音声、3〜5分、1分以上の会話入り）の結果。</div>
+<div class="secrow"><h4>コンテストと評価</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“quality, creativity, and U.S. Verified Home Timeline impressions”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>数千人がローンチ投稿を引用して参加。</li><li>評価：品質、創造性、米国の認証ユーザーによるホームタイムライン・インプレッション。</li><li>ファイナリストは元プロジェクトのリンクとプロンプトを確認し、Grok Imagineのみで制作されたかを検証。</li></ul></div></div></div>
+<div class="secrow"><h4>受賞者</h4><div class="pair"><div class="en"><span class="lang">EN 要点引用</span><p>“Making a movie scene used to take a crew and a Hollywood budget.”</p></div><div class="ja"><span class="lang">日本語 要約</span><ul><li>グランプリ$100K：@NemPerez（5分の映画。顔・場所・声すべてGrok Imagineで制作）。</li><li>2位$50K：@JSFILMZ0412（帰還後の老いたオデュッセウスを描く独自の結末。会話中心）。</li><li>3位$25K：@Mr_AllenT（ポリュペモスをホラー映画化。キャラデザを固定し、ワークフローを公開）。</li><li>佳作$10K：@alx（最も多く見られた作品。インプレッション1位）。</li></ul></div></div></div>
+</div>
+</section>
+<section id="frameworks"><h2 class="sec"><span class="num">2</span>横断の行動指針：バズと収益化</h2><p class="lead">全記事を横断して抽出。各項目に出典記事を記載。</p>
+<div class="warnbox"><b>⚠️ X収益化を「解説」する人が最初に知るべきこと</b><span class="tag s" style="margin-left:6px">公式</span><br>報酬プログラムでは、<b>収益化コーチング・収益化の話・支払い最大化「だけ」に特化したコンテンツは対象外</b>、さらに<b>いいね・リプ・ブクマ・フォロー・RTを繰り返し求めることは禁止</b>と明記されています。<span class="tag k">解説</span>Xの仕組みを紹介する投稿では、要約だけで終わらせず、自分の検証・体験・独自の分析を足し、エンゲージメントのお願いは入れないのが安全です（どこまでが対象外かの線引きは公式に明示されていません）。<div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="part-title" id="f7">Xでバズって稼ぐための7つの秘策</div><p class="lead">バズ（リーチ）と収益化（転換）を同時に設計するための7項目。</p><div class="grid">
+<div class="item"><span class="n">01</span><h4><span class="tag s">公式</span>「自分が足したもの」を価値の中心にする</h4><p>報酬プログラムは、投稿の価値が主に「あなたが足したもの」から来ることを求めている。投稿前に「自分の貢献がなくても価値があるか？」と自問する。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="item"><span class="n">02</span><h4><span class="tag s">公式</span>最強の素材を無料部分に置く</h4><p>Exclusive Threadsでは、公開部分は単独で反応を取るコンテンツであり、同時に有料部分の試食。弱い前置きでは誰も壁まで届かない。</p><div class="src">出典：<a href="#a-exthreads">限定スレッド</a>、<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">03</span><h4><span class="tag s">公式</span>スピードで勝つ：トレンドには1分以内でビジュアルを</h4><p>Grok Imagineはアイデアから投稿まで1分以内。話題がまだ新しいうちに映像を出せる。</p><div class="src">出典：<a href="#a-imgimg">Imagine画像</a>、<a href="#a-imgvid">Imagine動画</a></div></div>
+<div class="item"><span class="n">04</span><h4><span class="tag s">公式</span>タイトルとフックで「具体性・好奇心・価値の約束」</h4><p>記事ガイドの例：「2026年の生産性向上のコツ」より「生産性アドバイスの95%が失敗する理由」。</p><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="item"><span class="n">05</span><h4><span class="tag s">公式</span>伸びた直後に購読カードを置く</h4><p>リーチがピークのときが新しい読者を転換するタイミング。Subscriptionsカードを伸びた投稿の後に出し、プロフィールにも固定。</p><div class="src">出典：<a href="#a-subs">サブスク</a>、<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">06</span><h4><span class="tag s">公式</span>エンゲージメントを「お願い」しない</h4><p>いいね・リプ・ブクマ・フォロー・RTを繰り返し求める行為は報酬プログラムの継続要件違反。中身で反応を取る。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="item"><span class="n">07</span><h4><span class="tag k">解説</span>1つの素材を多形式に展開する</h4><p>公式が推奨する「記事→要点の投稿・スレッド化」「限定記事→1週間後にティーザースレッド」「Space→要約スレッド」をつなげると、1本の深い調査から複数の投稿と転換導線が作れる（組み合わせ方は解説）。</p><div class="src">出典：<a href="#a-articles">Articles</a>、<a href="#a-subs">サブスク</a></div></div>
+</div>
+<div class="part-title" id="f9">Xで伸びる人の9つの本質</div><p class="lead">公式ガイドに繰り返し出てくる「伸びる人」の共通点。</p><div class="grid">
+<div class="item"><span class="n">01</span><h4><span class="tag s">公式</span>ニッチを決めて「その分野の人」になる</h4><p>サブスクの資格に届かない人への公式アドバイス：全員に好かれようとせず、特定分野の第一人者を目指す。</p><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">02</span><h4><span class="tag s">公式</span>視点（Point of view）を持って発信する</h4><p>報酬プログラムでは「コメンタリーはXの核」。既存の話題を起点にしても、視点・専門性・ユーモア・文脈を足せばオリジナルとして評価されうる。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a>、<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">03</span><h4><span class="tag s">公式</span>リプライで関係を作る</h4><p>リプライは他人のフィードにも表示され、インプレッションを素早く伸ばす（サブスクガイド）。記事ガイドも初期のリプへの返信を推奨。</p><div class="src">出典：<a href="#a-subs">サブスク</a>、<a href="#a-articles">Articles</a></div></div>
+<div class="item"><span class="n">04</span><h4><span class="tag s">公式</span>友人に話すような自然な声</h4><p>「プロっぽく」書くと退屈になりがち。「あなた」を主語に会話調で。トーンの一貫性が再訪につながる。</p><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="item"><span class="n">05</span><h4><span class="tag s">公式</span>主張には必ず根拠（Show, don&#x27;t tell）</h4><p>データ、体験、ビフォーアフターを主張の直後に。Exclusive Threadsでも公開部分でデータや洞察を1つ出して信頼を証明。</p><div class="src">出典：<a href="#a-articles">Articles</a>、<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">06</span><h4><span class="tag s">公式</span>頻度より一貫性</h4><p>毎週確実に出す限定コンテンツ1本は、不定期の10本より価値がある。定期フォーマット・定期Spacesで習慣を作る。</p><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">07</span><h4><span class="tag s">公式</span>数字を見て、聴いて、直す</h4><p>ダッシュボードで購読日と投稿内容を照合し、初期サブスクに直接要望を聞く。伸びる人は「最も多く投稿する人」ではなく「注意を払う人」。</p><div class="src">出典：<a href="#a-subs">サブスク</a>、<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">08</span><h4><span class="tag s">公式</span>試行回数を増やす</h4><p>Grok Imagineは同じプロンプトでも毎回結果が変わる。まず複数回生成し、うまくいったプロンプトを保存して育てる。</p><div class="src">出典：<a href="#a-imgimg">Imagine画像</a>、<a href="#a-imgvid">Imagine動画</a></div></div>
+<div class="item"><span class="n">09</span><h4><span class="tag k">解説</span>公式コンテストの評価軸を自分の指標にする</h4><p>3つのコンテストはいずれも「米国の認証ユーザーによるホームタイムライン・インプレッション」を評価軸に使い（記事コンテストはこの指標で1位・2位を決定）、報酬プログラムもPremiumユーザーのホームTLインプを基準にする。「認証ユーザーのホームTLに届くか」を意識するのが合理的（解釈）。</p><div class="src">出典：<a href="#a-artcontest">記事コンテスト</a>、<a href="#a-adcontest">広告コンテスト</a>、<a href="#a-odyssey">オデュッセイア</a>、<a href="#a-rewards">報酬プログラム</a></div></div>
+</div>
+<div class="part-title" id="f5">収益化の5つの鉄則</div><p class="lead">制度の要件とルールに沿って「止められない」収益化をするために。</p><div class="grid">
+<div class="item"><span class="n">01</span><h4><span class="tag s">公式</span>資格の数字を把握する</h4><p>報酬プログラム：認証フォロワー500人＋直近90日の認証ユーザーからのホームTLインプ50万（リプ除外）＋Premium系加入。サブスク：認証フォロワー2,000人＋過去3か月のオーガニック・インプ500万＋アカウント3か月以上など。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a>、<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">02</span><h4><span class="tag s">公式</span>「収益化ノウハウだけ」の投稿は報酬対象外</h4><p>収益化コーチング・収益化の話・支払い最大化「だけ」に特化したコンテンツは報酬プログラムの対象外と明記。X収益化の解説をするなら、独自の分析・検証・体験を足す設計が必要（どの程度で対象になるかは公式に明示なし）。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="item"><span class="n">03</span><h4><span class="tag s">公式</span>転載・軽い加工・自動化はNG</h4><p>コピー、ダウンロード再投稿、自動化投稿、トリミングや文字入れ程度の加工は対象外になりうる。広めたいだけならリポストを使う。</p><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="item"><span class="n">04</span><h4><span class="tag s">公式</span>サブスクは「約束以上」を届ける</h4><p>限定部分が薄ければすぐ解約される。期待以下を約束し、期待以上を届ける。忙しいときも一言連絡で信頼を保つ。</p><div class="src">出典：<a href="#a-exthreads">限定スレッド</a>、<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">05</span><h4><span class="tag s">公式</span>手取りを最大化する導線</h4><p>Xのプラットフォーム手数料はゼロ。Web経由の購読はアプリ経由より手数料が大幅に低いので、理由を説明してWeb購読をお願いする。支払いはStripe、最低$50。</p><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+</div>
+<div class="part-title" id="f10">10の必勝ルール（実行版）</div><p class="lead">今日から使える具体的な実行ルール。</p><div class="grid">
+<div class="item"><span class="n">01</span><h4><span class="tag s">公式</span>公開部分は2〜3投稿（3がスイートスポット）</h4><p>Exclusive Threadsの公開部分は2〜3投稿。4投稿が上限。</p><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">02</span><h4><span class="tag s">公式</span>限定スレッドは通常投稿3〜5本に1本から</h4><p>全部を有料にしない。この比率から始めて自分の読者で検証する。</p><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">03</span><h4><span class="tag s">公式</span>壁の向こうの中身を具体的に予告</h4><p>「数字付きの完全な内訳は以下」のように、何が得られるかを明言する。</p><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><span class="n">04</span><h4><span class="tag s">公式</span>記事は公開後24〜72時間プロフィールに固定</h4><p>公開前の数時間前にティーザー、公開後は固定と初期リプへの返信。</p><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="item"><span class="n">05</span><h4><span class="tag s">公式</span>記事は書いた後に20〜30%削る</h4><p>水増し語を消し、音読して違和感をつぶす。段落は2〜4行、3〜5段落ごとに小見出し。</p><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="item"><span class="n">06</span><h4><span class="tag s">公式</span>限定記事は3〜5項目の目次で引用投稿</h4><p>公開投稿のリーチを得つつ、本文はペイウォールの中に保つ。</p><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">07</span><h4><span class="tag s">公式</span>特典は具体的に書く</h4><p>「限定コンテンツ」より「毎週の市場解説」。具体的な特典の方が転換する。</p><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><span class="n">08</span><h4><span class="tag s">公式</span>画像プロンプトは5要素で書く</h4><p>被写体・ムードの参照・光源・構図・仕上げ。動画は「被写体＋スタイル/ムード＋照明＋カメラアングル＋仕上げ」。</p><div class="src">出典：<a href="#a-imgimg">Imagine画像</a>、<a href="#a-imgvid">Imagine動画</a></div></div>
+<div class="item"><span class="n">09</span><h4><span class="tag s">公式</span>動画は「画像を完成させてから動かす」</h4><p>Image-to-videoは開始フレームが決まるので予測しやすい。動画プロンプトは短く、動きとカメラだけ。</p><div class="src">出典：<a href="#a-imgvid">Imagine動画</a>、<a href="#a-imgimg">Imagine画像</a></div></div>
+<div class="item"><span class="n">10</span><h4><span class="tag s">公式</span>配信は予約してカウントダウン</h4><p>Live Studioで予約配信（最大1年先）、カウントダウン、カスタムサムネイル。配信中も指標を見ながら調整。</p><div class="src">出典：<a href="#a-live">Live Studio</a></div></div>
+</div>
+</section>
+<section id="revenue"><h2 class="sec"><span class="num">3</span>収益源マップ</h2><p class="lead">公式記事に書かれている稼ぎ方の全体像。<span class="tag s">公式</span>の内容を中心に、補足は「注意」欄に記載。</p><div class="rmap">
+<div class="item"><h4>Original Content Rewards（報酬プログラム）</h4><dl><dt>どう稼ぐ／役割</dt><dd>Premiumユーザーのホームタイムライン上の「適格インプレッション」に応じて報酬。2週間ごとに支払い。</dd><dt>主な条件</dt><dd>Premium系加入／認証フォロワー500人／直近90日の認証ユーザーからのホームTLインプ50万（リプ除外）／18歳以上 ほか</dd><dt>注意</dt><dd>オリジナリティが必須。エンゲージメント懇願・収益化ノウハウ特化・転載はNG。旧Revenue Sharingは新規受付終了。</dd></dl><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="item"><h4>Creator Subscriptions（サブスク）</h4><dl><dt>どう稼ぐ／役割</dt><dd>ファンからの月額課金。Xのプラットフォーム手数料ゼロ（決済・ストア手数料等のみ）。Stripeで支払い、最低$50、月末から約60日後。</dd><dt>主な条件</dt><dd>認証フォロワー2,000人／過去3か月のオーガニック・インプ500万／Premium認証／アカウント3か月以上・過去30日に投稿／18歳以上</dd><dt>注意</dt><dd>特典は具体的に。Web経由の購読は手数料が低い。</dd></dl><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><h4>Exclusive Threads（限定スレッド）</h4><dl><dt>どう稼ぐ／役割</dt><dd>公開部分でリーチを取り、続きをサブスク限定に。スレッド内の購読ボタンで新規獲得する「成長エンジン」。</dd><dt>主な条件</dt><dd>Creator Subscriptions参加者（全世界）</dd><dt>注意</dt><dd>公開2〜3投稿、通常投稿3〜5本に1本が目安。</dd></dl><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="item"><h4>サブスク限定投稿・限定記事</h4><dl><dt>どう稼ぐ／役割</dt><dd>既存サブスクの継続（リテンション）用。記事は「Subscribers」を選ぶだけで有料化。</dd><dt>主な条件</dt><dd>Creator Subscriptions参加者</dd><dt>注意</dt><dd>定期フォーマット、目次付き引用投稿、1週間後に再利用。</dd></dl><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><h4>X Articles（記事）</h4><dl><dt>どう稼ぐ／役割</dt><dd>長文で専門性と信頼を作る。公開記事で集客し、サブスク限定記事で収益化（ソフトペイウォール）。</dd><dt>主な条件</dt><dd>全Premium加入者が利用可</dd><dt>注意</dt><dd>記事自体の直接報酬は公式ガイドに記載なし。オリジナルな記事は報酬プログラムの対象例に含まれる。</dd></dl><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="item"><h4>限定リプライ・DM・バッジ・限定Spaces</h4><dl><dt>どう稼ぐ／役割</dt><dd>サブスクの特典を積み上げ、転換と継続を高める。</dd><dt>主な条件</dt><dd>Creator Subscriptions参加者</dd><dt>注意</dt><dd>DMは「強力だが使われていない転換レバー」と公式が明言。</dd></dl><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="item"><h4>Live Studio（ライブ配信）</h4><dl><dt>どう稼ぐ／役割</dt><dd>配信の作成・予約・分析・埋め込み。チャットを「サブスクライバー」限定にも設定可能。</dd><dt>主な条件</dt><dd>Premiumユーザー（ベータ）</dd><dt>注意</dt><dd>配信自体の収益化の仕組みは記事内に記載なし。サブスク特典と組み合わせる使い方は解説。</dd></dl><div class="src">出典：<a href="#a-live">Live Studio</a></div></div>
+<div class="item"><h4>公式コンテスト（記事・Grok Imagine）</h4><dl><dt>どう稼ぐ／役割</dt><dd>過去の賞金：記事コンテスト グランプリ$1M、Grok Imagine広告 グランプリ$1M、オデュッセイア グランプリ$100K など。</dd><dt>主な条件</dt><dd>各回の募集要項による</dd><dt>注意</dt><dd>評価に「米国の認証ユーザーによるホームTLインプレッション」が使われ、Grok Imagine系は制作の真正性（プロンプト等）も検証。</dd></dl><div class="src">出典：<a href="#a-artcontest">記事コンテスト</a>、<a href="#a-adcontest">広告コンテスト</a>、<a href="#a-odyssey">オデュッセイア</a></div></div>
+</div><div class="card" style="margin-top:16px"><span class="tag k">解説</span><b>流れで見るとこうなります：</b>オリジナルの通常投稿・記事・Imagineのビジュアルで<b>リーチ</b>（報酬プログラムの適格インプ）→ 伸びた投稿の後に<b>Subscriptionsカード</b>・<b>Exclusive Threads</b>で<b>サブスク転換</b> → 限定投稿・限定記事・DM・Spaces・Live Studioのサブスク限定チャットで<b>継続</b>。各要素は公式記事に基づきますが、この「流れ」としての組み立ては解説です。</div></section>
+<section id="checklist"><h2 class="sec"><span class="num">4</span>実行チェックリスト</h2><p class="lead">チェック状態はこのブラウザに保存されます。</p><div class="card check"><div class="progress"><i id="prog"></i></div><div id="progtxt" class="count"></div>
+<div class="grp">資格・設定</div>
+<label><input type="checkbox" data-k="c0"><span>Premium（またはPremium+／Business）に加入している <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c1"><span>認証フォロワー数と直近90日の認証ユーザーからのホームTLインプを確認した（Creator Studio） <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c2"><span>Creator Studio → Original Content Rewards で資格を確認・申請した <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c3"><span>Creator Studio > Subscriptions で資格（2,000人／500万インプ）を確認した <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<label><input type="checkbox" data-k="c4"><span>サブスク特典に具体的なカスタム特典を1〜2個入れた <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<label><input type="checkbox" data-k="c5"><span>価格を「意図して」決めた（同ジャンルの価格も確認） <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<div class="grp">投稿ごとのチェック</div>
+<label><input type="checkbox" data-k="c6"><span>「自分の貢献がなくても価値があるか？」と自問した <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c7"><span>転載・ダウンロード再投稿・軽い加工だけになっていない <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c8"><span>いいね・RT・フォロー等を繰り返しお願いしていない <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c9"><span>収益化ノウハウ「だけ」の投稿になっていない（独自の分析・検証を足した） <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c10"><span>他人の素材を使う権利を確認した <a href="#a-rewards" style="font-size:12px">［報酬プログラム］</a></span></label>
+<label><input type="checkbox" data-k="c11"><span>フックは単独でも読まれる強さがある <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<div class="grp">Exclusive Threads</div>
+<label><input type="checkbox" data-k="c12"><span>公開部分は2〜3投稿で、最強の素材を入れた <a href="#a-exthreads" style="font-size:12px">［限定スレッド］</a></span></label>
+<label><input type="checkbox" data-k="c13"><span>公開部分にデータや洞察を1つ入れて信頼を証明した <a href="#a-exthreads" style="font-size:12px">［限定スレッド］</a></span></label>
+<label><input type="checkbox" data-k="c14"><span>壁の向こうの中身を具体的に予告した <a href="#a-exthreads" style="font-size:12px">［限定スレッド］</a></span></label>
+<label><input type="checkbox" data-k="c15"><span>アナリティクスで反応の多い時間に投稿する <a href="#a-exthreads" style="font-size:12px">［限定スレッド］</a></span></label>
+<label><input type="checkbox" data-k="c16"><span>伸びた後にSubscriptionsカードを投稿した <a href="#a-exthreads" style="font-size:12px">［限定スレッド］</a></span></label>
+<div class="grp">記事</div>
+<label><input type="checkbox" data-k="c17"><span>タイトルは具体的・好奇心・価値の約束がある <a href="#a-articles" style="font-size:12px">［Articles］</a></span></label>
+<label><input type="checkbox" data-k="c18"><span>段落2〜4行、小見出し、太字、箇条書き <a href="#a-articles" style="font-size:12px">［Articles］</a></span></label>
+<label><input type="checkbox" data-k="c19"><span>書いた後に20〜30%削り、音読した <a href="#a-articles" style="font-size:12px">［Articles］</a></span></label>
+<label><input type="checkbox" data-k="c20"><span>公開前にティーザー、公開後24〜72時間は固定 <a href="#a-articles" style="font-size:12px">［Articles］</a></span></label>
+<label><input type="checkbox" data-k="c21"><span>初期のリプに返信した <a href="#a-articles" style="font-size:12px">［Articles］</a></span></label>
+<div class="grp">継続・改善</div>
+<label><input type="checkbox" data-k="c22"><span>ダッシュボードを毎週確認し、購読が増えた日の投稿を照合 <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<label><input type="checkbox" data-k="c23"><span>サブスクに毎月アンケート／DMで要望を聞いた <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<label><input type="checkbox" data-k="c24"><span>Web経由の購読をお願いする文面を用意した <a href="#a-subs" style="font-size:12px">［サブスク］</a></span></label>
+<label><input type="checkbox" data-k="c25"><span>良かったImagineのプロンプトを保存・タグ整理した <a href="#a-imgvid" style="font-size:12px">［Imagine動画］</a></span></label>
+</div></section>
+<section id="posts"><h2 class="sec"><span class="num">5</span>そのまま使える投稿案</h2><p class="lead">フック先行・140字以内（全角換算、Xの文字数カウントに準拠：全角＝1、半角＝0.5）。内容はすべて公式記事に基づきます。エンゲージメントのお願いは入れていません。</p><div class="grid">
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案01・収益配分の終了</div></div></div><pre>Xの収益化、ルールが変わりました。
+
+旧「収益配分」は新規受付終了。
+新しくなったのは「オリジナルコンテンツ報酬プログラム」。
+
+基準はPremiumユーザーのホームTLで見られた回数。
+しかも「あなたが足した価値」が審査の軸です。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案02・参加条件</div></div></div><pre>Xの新しい報酬プログラム、参加条件まとめ👇
+
+・Premium系に加入
+・認証フォロワー500人以上
+・直近90日で認証ユーザーからのホームTLインプ50万以上（リプは除外）
+・オリジナル投稿を定期的に
+
+審査は3営業日以内とのこと。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案03・NG行為</div></div></div><pre>X公式が明記した「報酬対象外」になる投稿。
+
+・他人の投稿のコピー
+・DLして再アップ
+・自動投稿
+・トリミングや文字入れだけの加工
+・いいね/RTのお願いを繰り返す
+
+心当たりがある人は今日から見直しを。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案04・自問</div></div></div><pre>X公式の「オリジナル」判定、核心はこの一文。
+
+「あなたの貢献がなくても、その投稿に価値はあるか？」
+
+Yesなら、まだ足りない。
+視点・専門性・ユーモア・文脈を足せ、と公式は言っています。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案05・限定スレッド</div></div></div><pre>X公式が教える「限定スレッド」の黄金比。
+
+・公開は2〜3投稿（3がベスト）
+・一番強い素材は無料部分に
+・壁の向こうに何があるか具体的に言う
+・通常投稿3〜5本に1本から
+
+出し惜しみした人から負けます。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案06・サブスク手数料</div></div></div><pre>意外と知られていないXのサブスクの話。
+
+Xのプラットフォーム手数料はゼロ。
+引かれるのは決済・ストア手数料等だけ。
+
+さらにWeb経由の購読はアプリ経由より手数料が大幅に安い、と公式ガイドに明記されています。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案07・サブスク資格</div></div></div><pre>Xでサブスクを始める条件、確認しましたか？
+
+・認証フォロワー2,000人
+・過去3か月でオーガニック500万インプ
+・アカウント作成3か月以上
+・18歳以上
+
+届かない人への公式アドバイスは「ニッチを決めて、その分野の人になれ」。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案08・特典の書き方</div></div></div><pre>Xのサブスクが売れない人、特典の書き方を見直して。
+
+×「限定コンテンツ」
+○「毎週の市場解説」
+
+公式いわく、具体的な特典は漠然とした特典に毎回勝つ。
+まずは1〜2個、具体的なカスタム特典を。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案09・記事タイトル</div></div></div><pre>X公式の記事ガイドより、タイトルの良い例・悪い例。
+
+×「2026年の生産性向上のコツ」
+○「生産性アドバイスの95%が失敗する理由」
+
+具体的で、好奇心をそそり、価値を約束する。
+これだけで開封率は変わります。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案10・記事の削り</div></div></div><pre>X公式が推奨する記事の推敲ルール。
+
+「1稿目は自分のため、2稿目以降は読者のため」
+
+・文字数を20〜30%削る
+・水増し語を消す
+・声に出して読む
+
+長文ほど、削った人が勝ちます。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案11・記事の伸ばし方</div></div></div><pre>Xで記事を書いたら、公開後にやること。
+
+・公開数時間前にティーザー
+・24〜72時間プロフィールに固定
+・要点をスレッド化して記事へ誘導
+・最初のリプに全力で返信
+・関連ニュースの時に再共有
+
+公式ガイドの5つの型です。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-articles">Articles</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案12・Grok Imagine</div></div></div><pre>Grok Imagineで画像が微妙な人へ。
+
+公式のプロンプト5要素
+①被写体を具体的に
+②ムードは作品名などで参照
+③光源を書く
+④構図（カメラ位置）を書く
+⑤質感・色調で仕上げ
+
+曖昧な指示は「コイン投げ」だそうです。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-imgimg">Imagine画像</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案13・Imagine動画</div></div></div><pre>Grok Imagineで動画を作るなら、公式推奨はこの順番。
+
+①詳細なプロンプトで画像を作る
+②構図・光・被写体を確認
+③動画化。プロンプトは短く「動き・カメラ・ムード」だけ
+
+延長するときは「次に何が起きるか」だけ書く。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-imgvid">Imagine動画</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案14・コンテスト</div></div></div><pre>X公式コンテストの評価軸、共通点に気づきました。
+
+記事コンテスト
+Imagine広告コンテスト
+オデュッセイア・コンテスト
+
+どれも「米国の認証ユーザーのホームTLインプ」を評価に使っています。
+届ける相手を意識する時代です。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-artcontest">記事コンテスト</a>、<a href="#a-adcontest">広告コンテスト</a>、<a href="#a-odyssey">オデュッセイア</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">案15・Live Studio</div></div></div><pre>Xのライブ配信が本格化。
+
+Live Studio（ベータ）でできること
+・最大1年先まで予約
+・カウントダウンとサムネイル
+・同時視聴者や国別をリアルタイム表示
+・OBS等とRTMP接続
+・チャットをサブスク限定に
+
+Creator Studioから開けます。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-live">Live Studio</a></div></div>
+</div></section>
+<section id="threads"><h2 class="sec"><span class="num">6</span>スレッド版</h2>
+<div class="part-title">スレッド版A：Xで「稼げる投稿」と「稼げない投稿」の境界線</div><button class="copy copyall" data-thread="t0">スレッド全体をコピー</button><div class="thread" id="t0">
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">1/6</div></div></div><pre>X公式の新しい報酬プログラムを読み込んで、「稼げる投稿」と「稼げない投稿」の境界線を整理しました。
+
+結論：主役は「あなたが足した価値」です。
+
+詳しく解説します🧵</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">2/6</div></div></div><pre>① 旧「収益配分」は新規受付終了。
+既存参加者も2026年9月7日分まで。
+
+9月8日以降、新しい「オリジナルコンテンツ報酬プログラム」に申請する形へ移行しています。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">3/6</div></div></div><pre>② 報酬の基準は「適格インプレッション」。
+
+Premium加入者が、ホームTLで投稿の50%以上を表示したユニークな閲覧のこと。
+同じ人の重複や広告・不正な閲覧は除外されます。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">4/6</div></div></div><pre>③ 対象外になる投稿
+・コピー、DLして再アップ
+・自動投稿
+・トリミングや文字入れだけの加工
+・価値の薄いリアクション
+・コミュニティノートが付いたもの
+
+広めたいだけなら「リポスト」を使う、が公式の答え。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">5/6</div></div></div><pre>④ 逆に評価されるのは
+・自分で書いたスレッドや記事
+・自分で撮った写真や動画
+・自作のミームや図解
+・独自の視点を足したコメンタリー
+
+既存の話題が起点でもOK。足した価値が主役ならオリジナルです。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">6/6</div></div></div><pre>⑤ 最後に公式の自問チェック。
+
+「自分の貢献がなくても、この投稿に価値はあるか？」
+
+Yesなら、もう一歩、自分の視点を足してから投稿しましょう。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-rewards">報酬プログラム</a></div></div>
+</div>
+<div class="part-title">スレッド版B：フォロワーを月額サブスクに変える公式の型</div><button class="copy copyall" data-thread="t1">スレッド全体をコピー</button><div class="thread" id="t1">
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">1/6</div></div></div><pre>フォロワーは「関心」、サブスクは「コミット」。
+
+X公式のサブスク完全ガイドと限定スレッドガイドから、フォロワーを月額サブスクに変える型をまとめました🧵</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">2/6</div></div></div><pre>① 条件：認証フォロワー2,000人、過去3か月でオーガニック500万インプ、アカウント3か月以上など。
+
+届かない人への公式の答えは「ニッチを決め、視点を持って発信し、リプライで関係を作る」。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">3/6</div></div></div><pre>② 特典は具体的に。
+×「限定コンテンツ」
+○「毎週の市場解説」
+
+価格はランダムに決めない。最初は無理のない価格で始め、価値を証明してから上げる。上げる方が下げるより簡単です。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">4/6</div></div></div><pre>③ 新規獲得の主役は「限定スレッド」。
+
+・公開は2〜3投稿
+・最強の素材を無料部分に
+・壁の向こうの中身を具体的に予告
+・通常投稿3〜5本に1本から</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-exthreads">限定スレッド</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">5/6</div></div></div><pre>④ 継続の主役は「限定投稿・限定記事・DM・Spaces」。
+
+頻度より一貫性。
+毎週確実な1本は、不定期の10本に勝つ、と公式。
+
+DMは「強力だが使われていない転換レバー」とも。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+<div class="post"><div class="head"><div class="avatar">P</div><div><div class="name">papa</div><div class="meta">6/6</div></div></div><pre>⑤ 手取りの話。
+Xのプラットフォーム手数料はゼロ。
+Web経由の購読はアプリより手数料が大幅に安い。
+
+最初の30日は「告知→全形式を試す→最高傑作→数字で振り返り」。焦らず続けた人が勝ちます。</pre><div class="foot"><span class="count"></span><button class="copy">コピー</button></div><div class="src">出典：<a href="#a-subs">サブスク</a></div></div>
+</div>
+</section>
+<footer>出典：X公式アカウント @XCreators／@imagine の記事（X API で2026年10月20日 JST に取得）。本ページは非公式の要約・解説です。</footer></div><div class="toast" id="toast"></div>
+<script>
+(function(){
+var root=document.documentElement;
+document.getElementById('themeBtn').addEventListener('click',function(){var c=root.getAttribute('data-theme');var sd=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;var d=c?c==='dark':sd;root.setAttribute('data-theme',d?'light':'dark');});
+function count(s){var re=/https?:\/\/\S+/g,u=s.match(re)||[],r=s.replace(re,''),w=0;for(var ch of r){var c=ch.codePointAt(0);w+=(c<=0x10FF||(c>=0x2000&&c<=0x200D)||(c>=0x2010&&c<=0x201F)||(c>=0x2032&&c<=0x2037))?0.5:1;}return Math.ceil(w+u.length*11.5);}
+document.querySelectorAll('.post').forEach(function(p){var pre=p.querySelector('pre'),c=p.querySelector('.count');var n=count(pre.textContent);c.textContent='約'+n+'字（全角換算）'+(n>140?'・140字超':'');if(n>140)c.classList.add('over');});
+var toast=document.getElementById('toast'),tt;function show(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1600);}
+function copy(s,b){function ok(){var o=b.textContent;b.textContent='コピー済み ✓';b.classList.add('done');show('コピーしました');setTimeout(function(){b.textContent=o;b.classList.remove('done')},1500);}
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(s).then(ok,fb);}else fb();
+ function fb(){var t=document.createElement('textarea');t.value=s;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){show('コピーできませんでした');}document.body.removeChild(t);}}
+document.querySelectorAll('button.copy').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.thread){var ps=[].map.call(document.querySelectorAll('#'+b.dataset.thread+' pre'),function(x){return x.textContent});copy(ps.join('\n\n---\n\n'),b);}
+ else copy(b.closest('.post').querySelector('pre').textContent,b);});});
+var boxes=document.querySelectorAll('.check input');function upd(){var n=0;boxes.forEach(function(x){if(x.checked)n++});document.getElementById('prog').style.width=(n/boxes.length*100)+'%';document.getElementById('progtxt').textContent=n+' / '+boxes.length+' 完了';}
+boxes.forEach(function(x){try{x.checked=localStorage.getItem('ca_'+x.dataset.k)==='1'}catch(e){}x.addEventListener('change',function(){try{localStorage.setItem('ca_'+x.dataset.k,x.checked?'1':'0')}catch(e){}upd();});});upd();
+})();
+</script></body></html>
